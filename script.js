@@ -9,14 +9,16 @@ const gcd = (x, y) => {
   return (x % y) ? gcd(y, x % y) : y;
 }
 
-for(i=1;i<=25;i++){
-  var cell = $("<div>", {
-    class: "cell",
-    value: i,
-  });
+$(window).on('load', function (){
+  for(i=1;i<=25;i++){
+    var cell = $("<div>", {
+      class: "cell",
+      value: i,
+    });
 
-  cell.appendTo("#stage");
-}
+    cell.appendTo("#stage");
+  }
+});
 
 var timer = false;
 $(window).resize(function(){

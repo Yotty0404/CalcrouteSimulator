@@ -87,8 +87,8 @@ body{
   left:3px;
 }
 .denominator {
-  top:calc(55vh/10 - 8px);
-  left:calc(55vh/10 - 5px);
+  top:calc(55vh/10 - 15px);
+  left:calc(55vh/10 - 15px);
 }
 .divide {
   /*   font-size: 2rem; */

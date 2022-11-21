@@ -1,7 +1,7 @@
 body{
   display:flex;
   flex-direction: column;
-  font-family: メイリオ#3104B4;
+  font-family: メイリオ;
   overflow:hidden;
 
   user-select: none;
@@ -54,16 +54,16 @@ body{
 }
 .cell{
   margin:2px;
-  height:calc(55vh/5 - 7px);
-  width:calc(55vh/5 - 7px);
+  height:calc(55vh/5 - 12px);
+  width:calc(55vh/5 - 12px);
   border-radius:8px;
   background:#ccc;
   cursor:pointer;
 }
 #piece{
   position:absolute;
-  height:calc(55vh/5 - 7px);
-  width:calc(55vh/5 - 7px);
+  height:calc(55vh/5 - 12px);
+  width:calc(55vh/5 - 12px);
   border-radius:50%;
   background:#3104B4;
   color:white;

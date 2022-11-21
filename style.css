@@ -3,13 +3,13 @@ body{
   flex-direction: column;
   font-family: メイリオ#3104B4;
   overflow:hidden;
-  
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    touch-action: none;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  touch-action: none;
 }
 #header{
   display:flex;
@@ -41,6 +41,8 @@ body{
   width:55vh;
   display:flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
 }
 .row{
   display:flex;
@@ -52,21 +54,21 @@ body{
 }
 .cell{
   margin:2px;
-  height:calc(55vh/5 - 4px);
-  width:calc(55vh/5 - 4px);
+  height:calc(55vh/5 - 7px);
+  width:calc(55vh/5 - 7px);
   border-radius:8px;
   background:#ccc;
   cursor:pointer;
 }
 #piece{
   position:absolute;
-  height:calc(55vh/5 - 4px);
-  width:calc(55vh/5 - 4px);
+  height:calc(55vh/5 - 7px);
+  width:calc(55vh/5 - 7px);
   border-radius:50%;
   background:#3104B4;
   color:white;
   transition: all 0.2s;
-  
+
   display:flex;
   justify-content: center;
   align-items: center;
@@ -74,8 +76,8 @@ body{
 
 .numerator,.denominator{
   position:absolute;
-  height:calc(55vh/10 - 2px);
-  width:calc(55vh/10 - 2px);
+  height:calc(55vh/10 - 5px);
+  width:calc(55vh/10 - 5px);
   display:flex;
   justify-content: center;
   align-items: center;
@@ -89,7 +91,7 @@ body{
   left:calc(55vh/10 - 5px);
 }
 .divide {
-/*   font-size: 2rem; */
+  /*   font-size: 2rem; */
 }
 
 #plus{

@@ -162,7 +162,7 @@ body{
   right:0;
   bottom:-180px;
   margin:auto;
-  transition: all 0.2s;
+  transition: bottom 0.2s;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -191,6 +191,7 @@ body{
 #key_left {
   grid-row: 1/5;
   grid-column: 1;
+  box-shadow:initial !important;
 }
 
 #key_7{

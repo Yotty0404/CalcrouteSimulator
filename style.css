@@ -153,31 +153,39 @@ body{
 }
 
 
-#keyboard{
-  display:grid;
+#keyboard_container{
   position:absolute;
-  background:#555;
   height:180px;
-  width:90vw;
-  max-width:480px;
+  width:100vw;
+  background:#555;
   left:0;
   right:0;
   bottom:-180px;
   margin:auto;
   transition: all 0.2s;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#keyboard{
+  display:grid;
+  height:180px;
+  width:calc(90vw + 15px;);
+  max-width:480px;
 }
 
 #keyboard div{
   background:#bbb;
   margin:3px;
   border-radius:2px;
-  width:calc(90vw/5 - 8px);
+  width:calc(90vw/5);
   max-width:80px;
   display:flex;
   justify-content: center;
   align-items: center;
   cursor:pointer;
-    box-shadow: 0 1px 1px 0 rgb(0 0 0 / 50%);
+  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 50%);
 }
 
 #key_left {

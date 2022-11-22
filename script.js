@@ -20,6 +20,7 @@ $(window).on('load', function (){
   }
 });
 
+
 var timer = false;
 $(window).resize(function(){
   if(!$('#piece').length) return;
@@ -39,7 +40,7 @@ $(window).resize(function(){
 });
 
 $(document).on("click", ".cell", function () {
-  if($('#piece').length) return;
+  if($('#piece').length && !isDispKeyboard) return;
   $("#piece").remove();
   var piece = $("<div>", {
     id: "piece",

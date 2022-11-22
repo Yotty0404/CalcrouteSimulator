@@ -170,10 +170,10 @@ $(document).on("click", "#key_enter", function () {
 
 function switchDispKeyboard(){
   if(isDispKeyboard){
-    $("#keyboard").css('bottom', '-180px');
+    $("#keyboard_container").css('bottom', '-180px');
   }
   else{
-    $("#keyboard").css('bottom', '0');
+    $("#keyboard_container").css('bottom', '0');
   }
   isDispKeyboard = !isDispKeyboard;
 }

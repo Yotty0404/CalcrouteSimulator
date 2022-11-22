@@ -94,7 +94,7 @@ function Calc(direction){
 
   switch (direction) {
     case 'u':
-      if(lastMoveDirection == direction)topNum/=sameMoveCount-1
+      if(lastMoveDirection == direction)bottomNum*=sameMoveCount-1
       topNum*=sameMoveCount;
       break;
     case 'r':

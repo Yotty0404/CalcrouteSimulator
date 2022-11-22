@@ -1,7 +1,8 @@
 body{
   display:flex;
   flex-direction: column;
-  font-family: メイリオ;
+  align-items: center;
+  font-family: 'メイリオ', 'Meiryo', sans-serif;
   overflow:hidden;
 
   user-select: none;
@@ -10,6 +11,9 @@ body{
   -moz-user-select: none;
   -khtml-user-select: none;
   touch-action: none;
+}
+*{
+  overflow:hidden;
 }
 #header{
   display:flex;
@@ -32,13 +36,19 @@ body{
 
 
 #stage_container{
+  height:95vw;
+  width:95vw;
+  max-height:500px;
+  max-width:500px;
   display:flex;
   justify-content: center;
   flex-direction: column;
 }
 #stage{
-  height:55vh;
-  width:55vh;
+  height:calc(95vw - 40px);
+  width:calc(95vw - 40px);
+  max-height:460px;
+  max-width:460px;
   display:flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -54,18 +64,22 @@ body{
 }
 .cell{
   margin:2px;
-  height:calc(55vh/5 - 20px);
-  width:calc(55vh/5 - 20px);
+  height:calc(95vw/5 - 12px);
+  width:calc(95vw/5 - 12px);
+  max-height:88px;
+  max-width:88px;
   border-radius:8px;
   background:#ccc;
   cursor:pointer;
 }
 #piece{
   position:absolute;
-  height:calc(55vh/5 - 20px);
-  width:calc(55vh/5 - 20px);
+  height:calc(95vw/5 - 12px);
+  width:calc(95vw/5 - 12px);
+  max-height:88px;
+  max-width:88px;
   border-radius:50%;
-  background:#3104B4;
+  background:#08088A;
   color:white;
   transition: all 0.2s;
 
@@ -73,27 +87,6 @@ body{
   justify-content: center;
   align-items: center;
 }
-
-.numerator,.denominator{
-  position:absolute;
-  height:calc(55vh/10 - 5px);
-  width:calc(55vh/10 - 5px);
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-.numerator {
-  top:5px;
-  left:3px;
-}
-.denominator {
-  top:calc(55vh/10 - 15px);
-  left:calc(55vh/10 - 15px);
-}
-.divide {
-  /*   font-size: 2rem; */
-}
-
 #plus{
   background:#2E64FE;
   color:white;
@@ -110,9 +103,9 @@ body{
   background:#3ADF00;
   color:white;
 }
-
 #plus,#minus{
-  height:calc(55vh - 4px);
+  height:calc(95vw - 40px);
+  max-height:460px;
   width:20px;
   border-radius:4px;
   display:flex;
@@ -122,12 +115,37 @@ body{
 
 #times,#divided{
   height:20px;
-  width:calc(55vh - 4px);
+  width:calc(100% - 40px);
+  max-width:460px;
   border-radius:4px;
   display:flex;
   justify-content: center;
   align-items: center;
 }
+
+
+.numerator,.denominator{
+  position:absolute;
+  height:calc(95vw/10 - 6px);
+  width:calc(95vw/10 - 6px);
+  max-height:44px;
+  max-width:44px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.numerator {
+  top:4px;
+  left:4px;
+}
+.denominator {
+  top:min(calc(95vw/10 - 10px), 40px);
+  left:min(calc(95vw/10 - 10px), 40px);
+}
+.divide {
+  /*   font-size: 2rem; */
+}
+
 
 #keyboard{
   display:grid;

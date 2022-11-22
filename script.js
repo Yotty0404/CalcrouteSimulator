@@ -218,7 +218,7 @@ function onTouchMove(event) {
   var r = new_position.screenX - position.screenX;
   var max = Math.max(u, d, r, l);
 
-  if (max < 20) {
+  if (max < 15) {
     return;
   }
 

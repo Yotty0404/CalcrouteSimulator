@@ -328,5 +328,6 @@ body{
   #move_excess{
     text-align:left;
     padding-left:2px;
+    width:36px;
   }
 }

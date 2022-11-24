@@ -48,9 +48,7 @@ $(document).on("click", ".cell", function () {
   });
   piece.appendTo('#stage');
 
-  if(!isDispKeyboard){
-    switchDispKeyboard();
-  }
+  switchDispKeyboard(true);
 });
 
 function Move(direction){
@@ -75,7 +73,6 @@ function Move(direction){
   }
 
   Calc(direction);
-
 
   if(lastMoveDirection != direction){
     moveHistory.push({direction:direction, sameMoveCount:1});
@@ -275,19 +272,17 @@ $(document).on("click", "#key_back", function () {
 
 $(document).on("click", "#key_enter", function () {
   if($('#piece').text()=="") return;
-  switchDispKeyboard();
+  switchDispKeyboard(false);
   Reset();
 });
 
-function switchDispKeyboard(){
+function switchDispKeyboard(idDisp){
   var windowHeight = window.innerHeight;
   $("#row_moves").show();
   $("#row_buttons").show();
   $('#piece').css('transition-duration', '0s');
-  if(isDispKeyboard){
-    $("#keyboard_container").css('bottom', '-180px');
-  }
-  else{
+
+  if(idDisp){
     $("#keyboard_container").css('bottom', '0');
 
     //ステージも上昇
@@ -296,7 +291,10 @@ function switchDispKeyboard(){
       $("#row_buttons").hide();
     }
   }
-  isDispKeyboard = !isDispKeyboard;
+  else{
+    $("#keyboard_container").css('bottom', '-180px');
+  }
+  isDispKeyboard = idDisp;
 
   var val = Number($("#piece").attr("value"));
   var offset = $(`.cell[value=${val}]`).offset();
@@ -401,9 +399,6 @@ $(document).on("click", "#btn_confirm", function () {
   sameMoveCount=1;
   DispMove();
 });
-
-
-
 
 function DispMove(){
   $('#row_moves').empty();

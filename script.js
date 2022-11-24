@@ -341,9 +341,7 @@ $(document).on("click", "#btn_delete", function () {
 
 
 $(document).on("click", "#btn_back", function () {
-  console.log(1)
   Back();
-  console.log(2)
 });
 
 

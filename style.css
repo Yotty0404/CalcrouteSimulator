@@ -249,15 +249,15 @@ body{
   box-shadow:initial !important;
 }
 
-#key_7{
+#key_1{
   grid-row: 1;
   grid-column: 2;
 }
-#key_8{
+#key_2{
   grid-row: 1;
   grid-column: 3;
 }
-#key_9{
+#key_3{
   grid-row: 1;
   grid-column: 4;
 }
@@ -277,15 +277,15 @@ body{
   grid-row: 2;
   grid-column: 4;
 }
-#key_1{
+#key_7{
   grid-row: 3;
   grid-column: 2;
 }
-#key_2{
+#key_8{
   grid-row: 3;
   grid-column: 3;
 }
-#key_3{
+#key_9{
   grid-row: 3;
   grid-column: 4;
 }

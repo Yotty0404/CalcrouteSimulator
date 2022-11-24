@@ -40,14 +40,12 @@ $(window).resize(function(){
 
 $(document).on("click", ".cell", function () {
   if($('#piece').length && !isDispKeyboard) return;
+
   $("#piece").remove();
   var piece = $("<div>", {
     id: "piece",
     value:$(this).attr("value"),
   });
-
-  var offset = $(this).offset();
-  piece.offset({ top: offset.top, left: offset.left });
   piece.appendTo('#stage');
 
   if(!isDispKeyboard){
@@ -97,6 +95,10 @@ function Move(direction){
 function Calc(direction){
   if(lastMoveDirection != direction){
     sameMoveCount=1;
+
+    $("#stage").children().removeClass('cell_current');
+    var val = Number($("#piece").attr("value"));
+    $(`.cell[value=${val}]`).addClass("cell_current");
   }
   else{
     sameMoveCount+=1;
@@ -157,6 +159,25 @@ function Back(){
     else{
       lastMoveDirection = moveHistory.slice(-1)[0].direction;
       sameMoveCount=moveHistory.slice(-1)[0].sameMoveCount;
+
+      var lastVal = val;
+      switch (lastMoveDirection) {
+        case 'u':
+          lastVal+=5*sameMoveCount;
+          break;
+        case 'r':
+          lastVal-=1*sameMoveCount;
+          break;
+        case 'd':
+          lastVal-=5*sameMoveCount;
+          break;
+        case 'l':
+          lastVal+=1*sameMoveCount;
+          break;
+      }
+
+      $("#stage").children().removeClass('cell_current');
+      $(`.cell[value=${lastVal}]`).addClass("cell_current");
     }
   }
   else{
@@ -259,13 +280,26 @@ $(document).on("click", "#key_enter", function () {
 });
 
 function switchDispKeyboard(){
+  var windowHeight = window.innerHeight;
+  $("#row_moves").show();
+  $("#row_buttons").show();
   if(isDispKeyboard){
     $("#keyboard_container").css('bottom', '-180px');
   }
   else{
     $("#keyboard_container").css('bottom', '0');
+
+    //ステージも上昇
+    if(windowHeight < 770){
+      $("#row_moves").hide();
+      $("#row_buttons").hide();
+    }
   }
   isDispKeyboard = !isDispKeyboard;
+
+  var val = Number($("#piece").attr("value"));
+  var offset = $(`.cell[value=${val}]`).offset();
+  $("#piece").offset({ top: offset.top, left: offset.left });
 }
 
 
@@ -353,15 +387,26 @@ $(document).on("click", "#btn_restart", function () {
 });
 
 
+$(document).on("click", "#btn_confirm", function () {
+  $("#stage").children().removeClass('cell_current');
+  var val = Number($("#piece").attr("value"));
+  $(`.cell[value=${val}]`).addClass("cell_current");
+
+  lastMoveDirection = "";
+  sameMoveCount=1;
+  DispMove();
+});
+
+
+
+
 function DispMove(){
-  $("#moves_dummy").hide();
-  $("#move_excess").hide();
-  var roopCount = Math.min(moveHistory.length, 8);
   $('#row_moves').empty();
-  for (let i = 0; i < roopCount; i++) {
+
+  moveHistory.slice(-8).forEach(move => {
     var symbol = "";
     var str_class = "";
-    switch (moveHistory[i].direction) {
+    switch (move.direction) {
       case 'u':
         symbol = "×";
         str_class = "move_times";
@@ -379,20 +424,14 @@ function DispMove(){
         str_class = "move_minus";
         break;
     }
-    $("#row_moves").append(`<div class="${str_class}">${symbol+moveHistory[i].sameMoveCount}</div>`)
-  }
+    $("#row_moves").append(`<div class="${str_class}">${symbol+move.sameMoveCount}</div>`)
+  });
 
   if(moveHistory.length > 8){
-    $("#moves_dummy").show();
-    $("#move_excess").show();
-
-    $("#move_excess").addClass('moves_animation');
-    setTimeout(() => {$("#move_excess").removeClass('moves_animation')}, 200);
-    ;
+    $($("#row_moves").children()[0]).remove();
+    $("#row_moves").prepend(`<div id="move_excess">...</div>`)
   }
-  else{
-    $($("#row_moves").children().slice(-1)[0]).addClass('moves_animation');
-  }
+  $($("#row_moves").children().slice(-1)[0]).addClass('moves_animation');
 }
 
 function Reset(){
@@ -403,4 +442,5 @@ function Reset(){
   lastMoveDirection = "";
   moveHistory = [];
   DispMove();
+  $("#stage").children().removeClass('cell_current');
 }

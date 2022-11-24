@@ -29,16 +29,14 @@ body{
   font-size:32px;
   height:44px;
 }
-#moves_container{
-  display:flex;
-  overflow:visible;
-}
 #row_moves{
   display:flex;
   align-items: center;
   height:44px;
   width:calc(40px * 8 + 20px);
   overflow:visible;
+  background:#eee;
+  transition: all 0.2s;
 }
 #row_moves div{
   height:38px;
@@ -48,6 +46,7 @@ body{
   align-items: center;
   color:white;
   margin:0 2px;
+  font-weight:bold;
 }
 .move_plus{
   background:#2E64FE;
@@ -65,25 +64,18 @@ body{
   background:#3ADF00;
   clip-path: polygon(0% 0%, 50% 15%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
 }
-#moves_dummy{
-  width:38px;
-  display: none;
-}
 #move_excess{
-  height:38px;
-  width:38px;
-  font-size:1.4rem;
-  display: none;
+  font-size:1.2rem;
   text-align:center;
-  background:#ddd;
-  line-height:28px;
-  margin-top:4px;
+  background:#aaa;
   border-radius:4px;
 }
 #row_buttons{
   display:flex;
   align-items: center;
   cursor:pointer;
+  height:44px;
+  transition: all 0.2s;
 }
 #row_buttons div:active{
   background:#ddd;
@@ -102,6 +94,7 @@ body{
   display:flex;
   justify-content: center;
   flex-direction: column;
+  background:white;
 }
 #stage{
   height:calc(95vw - 40px);
@@ -130,6 +123,13 @@ body{
   border-radius:8px;
   background:#ccc;
   cursor:pointer;
+}
+.cell_current{
+  border:3px solid #fe6666;
+  height:calc(95vw/5 - 19px);
+  width:calc(95vw/5 - 19px);
+  max-height:82px;
+  max-width:82px;
 }
 #piece{
   position:absolute;
@@ -204,7 +204,7 @@ body{
   left:min(calc(95vw/10 - 10px), 40px);
 }
 .divide {
-  /*   font-size: 2rem; */
+/*     font-size: 2rem; */
 }
 
 

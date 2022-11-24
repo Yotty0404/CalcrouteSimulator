@@ -327,6 +327,7 @@ function onTouchMove(event) {
 };
 
 function onTouchEnd(event) {
+  if (flickDirection == 'c') return;
   Move(flickDirection);
 };
 
@@ -340,7 +341,9 @@ $(document).on("click", "#btn_delete", function () {
 
 
 $(document).on("click", "#btn_back", function () {
+  console.log(1)
   Back();
+  console.log(2)
 });
 
 
@@ -384,7 +387,7 @@ function DispMove(){
   if(moveHistory.length > 8){
     $("#moves_dummy").show();
     $("#move_excess").show();
-    
+
     $("#move_excess").addClass('moves_animation');
     setTimeout(() => {$("#move_excess").removeClass('moves_animation')}, 200);
     ;

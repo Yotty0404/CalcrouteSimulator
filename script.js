@@ -283,6 +283,7 @@ function switchDispKeyboard(){
   var windowHeight = window.innerHeight;
   $("#row_moves").show();
   $("#row_buttons").show();
+  $('#piece').css('transition-duration', '0s');
   if(isDispKeyboard){
     $("#keyboard_container").css('bottom', '-180px');
   }
@@ -300,6 +301,10 @@ function switchDispKeyboard(){
   var val = Number($("#piece").attr("value"));
   var offset = $(`.cell[value=${val}]`).offset();
   $("#piece").offset({ top: offset.top, left: offset.left });
+
+  setTimeout(function(){
+    $('#piece').css('transition-duration', '0.2s');
+  },200);
 }
 
 

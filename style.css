@@ -323,3 +323,10 @@ body{
     transform: scale(1);
   }
 }
+
+@media (max-width: 420px) {
+  #move_excess{
+    text-align:left;
+    padding-left:2px;
+  }
+}

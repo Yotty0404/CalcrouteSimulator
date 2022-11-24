@@ -17,13 +17,23 @@
 <body>
     <div id="header">
       <div id="title">Calcroute Simulator</div>
+      <div id="moves_container">
+        <div id="moves_dummy" class="move_excess"></div>
+        <div id="row_moves"></div><div id="move_excess" class="move_excess">...</div>
+      </div>
       <div id="row_buttons">
         <div id="btn_delete" class="button">
           <span class="material-icons">delete</span><span>Delete</span>
         </div>
-        <span class="material-icons">refresh</span><span>Restart</span>
-        <span class="material-icons">check</span><span>Confirm</span>
-        <span class="material-icons">arrow_back</span><span>Back</span>
+        <div id="btn_restart" class="button">
+          <span class="material-icons">refresh</span><span>Restart</span>
+        </div>
+        <div id="btn_confirm" class="button">
+          <span class="material-icons">check</span><span>Confirm</span>
+        </div>
+        <div id="btn_back" class="button">
+          <span class="material-icons">arrow_back</span><span>Back</span>
+        </div>
       </div>
     </div>
     <div id="stage_container">

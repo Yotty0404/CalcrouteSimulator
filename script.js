@@ -290,9 +290,12 @@ function switchDispKeyboard(idDisp){
       $("#row_moves").hide();
       $("#row_buttons").hide();
     }
+    
+    $("#keyboard_container").show();
   }
   else{
     $("#keyboard_container").css('bottom', '-180px');
+    $("#keyboard_container").hide();
   }
   isDispKeyboard = idDisp;
 
